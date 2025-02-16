@@ -1,0 +1,62 @@
+    {% extends "dashboard/dashboard.html" %} 
+    {% block title %}Manager Dashboard{% endblock title %}
+
+    {% block all_event %}
+    <section>
+    <div class="overflow-x-auto flex-1 rounded-lg my-20">
+        <table class="min-w-full border-collapse overflow-hidden">
+        <h2 class="text-2xl font-bold text-black p-5">Events Data</h2>
+        <thead>
+            <tr class="">
+            <th
+                class="px-4 py-2 text-md text-left text-gray-600 font-semibold uppercase"
+            >
+                Event Name
+            </th>
+            <th class="px-4 py-2 text-left text-gray-600 font-semibold uppercase">
+                Participants
+            </th>
+            <th class="px-4 py-2 text-left text-gray-600 font-semibold uppercase">
+                category
+            </th>
+            <th class="px-4 py-2 text-left text-gray-600 font-semibold uppercase">
+                Event Date
+            </th>
+            <th class="px-4 py-2 text-left text-gray-600 font-semibold uppercase">
+                Event time
+            </th>
+            </tr>
+        </thead>
+        <tbody>            
+            <tr class="border-t">
+            <td class="px-4 py-2">
+            <div class=" flex justify-between">
+                <div class="flex items-center gap-3 text-left">
+                <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                <span class="">Birthday</span>
+                </div>             
+            </div>        
+            </td>
+            <td class="px-4 py-2">
+                <span
+                class="px-2 py-1 text-sm font-medium"
+                >5</span
+                >
+            </td>
+            <td class="px-4 py-2">
+                <span
+                class="px-2 py-1 text-sm font-medium bg-blue-100 text-blue-800 rounded"
+                >Birthday</span
+                >
+            </td>
+            
+            <td class="px-4 py-2">2 Feb 2025</td>
+            <td class="px-4 py-2">6:30 pm</td>
+            </tr>
+        
+            
+        </tbody>
+        </table>
+    </div>
+    </section>
+    {% endblock all_event %}

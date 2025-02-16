@@ -1,0 +1,22 @@
+{% extends "home/home.html" %}
+
+{% block event %}
+<div class='my-20'>
+    <div class='w-1/2 mx-auto bg-[#F5E9D4] p-12 rounded-lg'>
+        <div>
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="px-2 py-1 {% if message.tags == 'success' %} text-green-600 text-bold{% endif %}">{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <form method="POST" class='space-y-3 text-base font-medium'>
+            {% csrf_token %}            
+                {{event_form.as_div}}
+                {{event_category.as_div}}
+                <button class='bg-[#F4A492] w-full py-2 text-base text-white rounded' type="submit">Submit</button>
+            
+        </form>
+    </div>
+</div>
+{% endblock event %}
