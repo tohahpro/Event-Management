@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'event',
+    'Events',
     'cors',
 ]
 
@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'Event_Management.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'event-managements',
+        'NAME': 'event-management',
         'USER': 'postgres',
         'PASSWORD': '1234',
         'HOST': 'localhost',

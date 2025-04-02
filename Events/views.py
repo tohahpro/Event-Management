@@ -1,13 +1,18 @@
 from django.shortcuts import render, redirect
-from event.event_from import EventModelFrom, CategoryModelForm
+from Events.event_from import EventModelFrom, CategoryModelForm
 from django.contrib import messages
 from django.db.models import Count
-from event.models import Events
+from Events.models import Events, Participant
 from datetime import date
 
 # Create your views here.
 def home_page(request):
-    return render(request, 'home/event.html')
+
+    type = request.GET.get('type','all')
+    base_query = Events.objects.select_related('category') 
+    events = base_query.all()
+
+    return render(request, 'home/event.html', {"events": events})
 
 def manage_dashboard(request):
 
@@ -37,9 +42,13 @@ def manage_dashboard(request):
         total_event= Count('id')        
     )
 
+    participantCount = Participant.objects.aggregate(
+        total_participantCount= Count('id')
+    )
+
     context = {
         "counts": counts,
-        # "participantCount":participantCount,
+        "participantCount":participantCount,
         "pastEvent":pastEvent,
         "upcomingEvent":upcomingEvent,
         "events":events,
